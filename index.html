@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Sokhna Lala</title>
+    <style>
+      /* ----- RESET ----- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background: #f9f9f9;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* ----- HEADER ----- */
+      header {
+        background: linear-gradient(135deg, #2c3e50, #3498db);
+        color: #fff;
+        padding: 15px 0;
+      }
+      header .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      nav ul {
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      nav ul li a:hover {
+        color: #1abc9c;
+      }
+
+      /* ----- HERO ----- */
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px 10%;
+        background: linear-gradient(135deg, #ecf0f1, #dff9fb);
+      }
+      .hero__text {
+        max-width: 600px;
+      }
+      .hero__text h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+      }
+      .hero__text p {
+        margin-top: 15px;
+        font-size: 1.1rem;
+        color: #555;
+      }
+      .hero img {
+        width: 380px;
+        height: 380px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid #1abc9c;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+      .hero img:hover {
+        transform: scale(1.05);
+      }
+
+      /* ----- SECTIONS ----- */
+      section {
+        padding: 60px 10%;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .section-header h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+      .section-header p {
+        color: #555;
+        font-size: 1rem;
+      }
+
+      /* ----- SERVICES ----- */
+      .services .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+      .service {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      .service:hover {
+        transform: translateY(-5px);
+      }
+      .service h3 {
+        color: #1abc9c;
+        margin: 10px 0;
+      }
+
+      /* ----- FORMATIONS ----- */
+      .formations .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .formation-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .formation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .formation-card h5 {
+        color: #1abc9c;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .formation-card p {
+        color: #555;
+        font-size: 1rem;
+      }
+
+      /* ----- COMPÉTENCES ----- */
+      .skills ul li {
+        margin: 15px 0;
+      }
+      .progress {
+        background: #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 20px;
+      }
+      .progress div {
+        height: 100%;
+        background: linear-gradient(135deg, #1abc9c, #3498db);
+        text-align: center;
+        color: white;
+        font-size: 0.9rem;
+      }
+
+      /* ----- PORTFOLIO ----- */
+      .portfolio .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .portfolio img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .portfolio img:hover {
+        transform: scale(1.07);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ----- CONTACT ----- */
+      .contact form {
+        max-width: 500px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .contact input,
+      .contact textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      .contact button {
+        background: linear-gradient(135deg, #1abc9c, #3498db);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .contact button:hover {
+        opacity: 0.9;
+      }
+
+      /* ----- FOOTER ----- */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #2c3e50, #3498db);
+        color: white;
+        margin-top: 40px;
+      }
+
+      /* ----- RESPONSIVE ----- */
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero img {
+          margin-top: 20px;
+          width: 300px;
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <h1>Lala Dev</h1>
+        <nav>
+          <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#formations">Formations</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero__text">
+        <h1>Je suis Sokhna Lala, développeuse web</h1>
+        <p>
+          Passionnée et curieuse, je crée des sites modernes et responsives. Mon
+          objectif est de transformer des idées en projets concrets à travers le
+          code.
+        </p>
+      </div>
+      <img src="images/grade.jpg" alt="avatar" />
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header">
+        <h2>À propos de moi</h2>
+        <p>
+          Moi, c’est Sokhna Lala ! Passionnée par le numérique, je crée des
+          projets utiles, simples et élégants.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <div class="section-header">
+        <h2>Mes Services</h2>
+      </div>
+      <div class="grid">
+        <div class="service">
+          <h3>Développement Web</h3>
+          <p>Création de sites modernes et responsives.</p>
+        </div>
+        <div class="service">
+          <h3>Base de Données</h3>
+          <p>Gestion et administration des bases de données.</p>
+        </div>
+        <div class="service">
+          <h3>Développement Mobile</h3>
+          <p>Applications mobiles adaptées aux besoins des utilisateurs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATIONS -->
+    <section id="formations" class="formations">
+      <div class="section-header">
+        <h2>Mes Formations</h2>
+        <p>Parcours académique et certifications obtenus</p>
+      </div>
+
+      <div class="grid">
+        <div class="formation-card">
+          <h5>Licence</h5>
+          <p>
+            Licence en Mathématiques Appliquées et Informatique, spécialisation
+            Génie Logiciel - UNCHK
+          </p>
+        </div>
+
+        <div class="formation-card">
+          <h5>Master 1</h5>
+          <p>Master 1 en Génie Logiciel - UNCHK</p>
+        </div>
+
+        <div class="formation-card">
+          <h5>Master 2</h5>
+          <p>Master 2 en Génie Logiciel - UNCHK</p>
+        </div>
+
+        <div class="formation-card">
+          <h5>Licence Professionnelle</h5>
+          <p>Licence obtenue à l’Institut Supérieur d’Informatique (ISI)</p>
+        </div>
+
+        <div class="formation-card">
+          <h5>Certification</h5>
+          <p>Certification en Administration de Base de Données</p>
+        </div>
+
+        <div class="formation-card">
+          <h5>Certification</h5>
+          <p>Certification en Software Developer à GoMyCode Sénégal</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills">
+      <div class="section-header">
+        <h2>Mes Compétences</h2>
+      </div>
+      <ul>
+        <li>
+          HTML
+          <div class="progress"><div style="width: 90%">90%</div></div>
+        </li>
+        <li>
+          CSS
+          <div class="progress"><div style="width: 80%">80%</div></div>
+        </li>
+        <li>
+          JavaScript
+          <div class="progress"><div style="width: 70%">70%</div></div>
+        </li>
+        <li>
+          PHP
+          <div class="progress"><div style="width: 65%">65%</div></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+      <div class="section-header">
+        <h2>Portfolio</h2>
+      </div>
+      <div class="grid">
+        <img src="images/project1.PNG" alt="Projet 1" />
+        <img src="images/projet2.png" alt="Projet 2" />
+        <img src="images/project1.png" alt="Projet 3" />
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="section-header">
+        <h2>Me Contacter</h2>
+      </div>
+      <form>
+        <input type="text" placeholder="Votre Nom" required />
+        <input type="email" placeholder="Votre Email" required />
+        <textarea placeholder="Votre Message" rows="5"></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Sokhna Lala - Portfolio</p>
+    </footer>
+  </body>
+</html>
